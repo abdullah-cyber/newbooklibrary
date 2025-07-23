@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import storeToLocal from '../utils/StoreToLocal'; // ✅ adjust if needed
+import storeToLocal from '../utils/StoreToLocal';
 
 export const AddBookForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -12,7 +12,7 @@ export const AddBookForm = () => {
     e.preventDefault();
 
     const newBook = {
-      id: Date.now(), // ✅ unique identifier
+      id: Date.now(),
       firstName,
       lastName,
       title,
@@ -20,11 +20,10 @@ export const AddBookForm = () => {
       publisher,
     };
 
-    storeToLocal.addBooks(newBook); // ✅ save to localStorage
+    storeToLocal.addBooks(newBook);
 
     alert('Book saved successfully!');
 
-    // Clear form
     setFirstName('');
     setLastName('');
     setTitle('');
@@ -33,66 +32,35 @@ export const AddBookForm = () => {
   };
 
   return (
-    <div className="card shadow-sm p-4 mx-auto mt-4" style={{ maxWidth: '600px' }}>
-      <h3 className="text-center mb-3">➕ Add a New Book</h3>
+    <div className="form-container">
+      <h2 className="form-header">📚 Add a New Book</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="firstName" className="form-label">First Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
+        <div className="form-group">
+          <label>First Name:</label>
+          <input value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
         </div>
-        <div className="mb-3">
-          <label htmlFor="secondName" className="form-label">Last Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="secondName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            required
-          />
+
+        <div className="form-group">
+          <label>Last Name:</label>
+          <input value={lastName} onChange={(e) => setLastName(e.target.value)} required />
         </div>
-        <div className="mb-3">
-          <label htmlFor="title" className="form-label">Title of Book</label>
-          <input
-            type="text"
-            className="form-control"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
+
+        <div className="form-group">
+          <label>Title of Book:</label>
+          <input value={title} onChange={(e) => setTitle(e.target.value)} required />
         </div>
-        <div className="mb-3">
-          <label htmlFor="year" className="form-label">Year of Publication</label>
-          <input
-            type="number"
-            className="form-control"
-            id="year"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-            required
-            min="0"
-          />
+
+        <div className="form-group">
+          <label>Year of Publication:</label>
+          <input value={year} type = "number" onChange={(e) => setYear(e.target.value)} required />
         </div>
-        <div className="mb-3">
-          <label htmlFor="publisher" className="form-label">Publisher</label>
-          <input
-            type="text"
-            className="form-control"
-            id="publisher"
-            value={publisher}
-            onChange={(e) => setPublisher(e.target.value)}
-            required
-          />
+
+        <div className="form-group">
+          <label>Publisher:</label>
+          <input value={publisher} onChange={(e) => setPublisher(e.target.value)} required />
         </div>
-        <button type="submit" className="btn btn-success w-100">Save Book</button>
+
+        <button type="submit" className="submit-btn">Save Book</button>
       </form>
     </div>
   );
