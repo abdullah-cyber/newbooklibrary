@@ -1,12 +1,13 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
-        <Link className="navbar-brand" to="/">📚 Awesome Library</Link>
+        <Link className="navbar-brand" to="/">
+          📚 Awesome Library
+        </Link>
 
         {/* Hamburger toggler */}
         <button
@@ -25,13 +26,19 @@ export const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/addBookUI">Add Book</Link>
+              <Link className="nav-link" to="/addBookUI">
+                Add Book
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/libraryList">List</Link>
+              <Link className="nav-link" to="/libraryList">
+                List
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contactInfo">Contact</Link>
+              <Link className="nav-link" to="/contactInfo">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
